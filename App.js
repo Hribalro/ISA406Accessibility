@@ -5,46 +5,21 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Picker, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Accessibility from "./components/Accessibility";
+import Header from "./components/Header"
 
 export default class App extends React.Component {
-  constructor(){
-    super();
-    this.state={
-      PickerValue:"elevator"
-    }
-  };
-  clickme=()=>{
-    var data = this.state.PickerValue;
-    if(data ==""){
-      alert("Please pick an option");
-    } else {
-      alert(data)
-    }
-  }
+  
   render() {
     return(
-      <View style={styles.container}>
-        <Text>Accessibility Demo</Text>
-        <Picker 
-        style = {{width: '80%'}} 
-        selectedValue = {this.state.PickerValue} 
-        onValueChange = {(itemValue, itemIndex) => this.setState({PickerValue:itemValue})}>
-        <Picker.Item label = "Elevator" value ="elevator" />
-        <Picker.Item label = "Stairs" value = "stairs" />
-        </Picker>
-        <Button title = "Go" onPress = {this.clickme}/>
+      <View style = {{flex : 1}}>
+        <Header/>
+        <Accessibility/>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
 
